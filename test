@@ -1,0 +1,33 @@
+SELECT COUNT(*) FROM players;
+SELECT * FROM players LIMIT 5;
+SELECT AVG(Height) FROM  players;
+SELECT AVG(Weight) FROM  players;
+SELECT AVG(Age) FROM  players;
+SELECT AVG(Seasons_in_league) FROM players;
+SELECT AVG(Real_value) FROM players;
+
+SELECT player, MIN(Height) FROM players;
+SELECT player, MAX (Height) FROM players;
+
+SELECT COUNT(*) FROM players 
+WHERE TEAM ="Orlando Magic";
+
+SELECT Player, Team, Season FROM players 
+  WHERE TEAM = "Orlando Magic" 
+  AND Season = "2019-2020";
+  
+SELECT COUNT(Season) AS NUM_SEASON_PLAYED, Player 
+  FROM Players 
+  GROUP BY Age >24
+  HAVING NUM_SEASON_PLAYED >10;
+
+SELECT COUNT (*),
+   CASE
+      
+WHEN Age >23 THEN "NEW"
+WHEN Age >25 then "great"
+WHEN Age >24 THEN  "better"
+ELSE "SENIOR" 
+END AS "number_of_seasons_in_league"
+FROM players
+GROUP BY number_of_seasons_in_league;
