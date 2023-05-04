@@ -1,0 +1,52 @@
+/* Put your data in here and query it! */
+
+CREATE TABLE FC_Barcelona_Team_Stats (Name TEXT, Age INTEGER, Position TEXT, Appearance INTEGER, Goals INTEGER, Assists INTEGER, Initial_Rating REAL);
+
+INSERT INTO FC_BARCELONA_Team_Stats VALUES ("Lionel Messi", 29, "FWD", 28, 33, 8, 8.46);
+
+INSERT INTO FC_BARCELONA_Team_Stats VALUES ("Neymar Jr.", 25, "FWD", 26, 9, 10, 8.43);
+
+INSERT INTO FC_BARCELONA_Team_Stats VALUES ("Luis Suarez", 30, "FWD", 30, 24, 12, 7.75);
+
+INSERT INTO FC_BARCELONA_Team_Stats VALUES ("Aleix Vidal", 27, "MDF", 5, 2, 2, 7.34);
+
+INSERT INTO FC_BARCELONA_Team_Stats VALUES ("Ivan Rakitic", 29, "MDF", 22, 7, 4, 7.18);
+
+INSERT INTO FC_BARCELONA_Team_Stats VALUES ("Gerard Pique", 30, "DEF", 23, 2, 0, 7.17);
+
+INSERT INTO FC_BARCELONA_Team_Stats VALUES ("Arda Turan", 30, "MDF", 14, 3, 3, 7.15);
+
+INSERT INTO FC_BARCELONA_Team_Stats VALUES ("Sergi Roberto", 25, "MDF", 23, 0, 5, 7.04);
+
+INSERT INTO FC_BARCELONA_Team_Stats VALUES ("Samuel Umtiti", 23, "DEF", 20, 1, 0, 7.00);
+
+INSERT INTO FC_BARCELONA_Team_Stats VALUES ("Serio Busquets", 28, "DEF", 29, 0, 2, 6.98);
+
+INSERT INTO FC_BARCELONA_Team_Stats VALUES ("Jordi Alba", 28, "DEF",18, 1, 5, 6.91);
+
+INSERT INTO FC_BARCELONA_Team_Stats VALUES ("Andres Iniesta", 32, "MDF", 10, 0, 3, 6.90);
+
+INSERT INTO FC_BARCELONA_Team_Stats VALUES ("Javier Mascherano", 32, "DEF", 20, 1, 3, 6.87);
+
+INSERT INTO FC_BARCELONA_Team_Stats VALUES ("Marc-Andre ter Stegen", 24, "GK", 32, 0, 0, 6.87);
+
+SELECT SUM(Goals) FROM FC_BARCELONA_Team_Stats;
+
+SELECT * FROM FC_BARCELONA_Team_Stats;
+
+SELECT name,
+    CASE
+        WHEN initial_rating > 8 THEN "A"
+        WHEN initial_rating > 7 THEN "B"
+        ELSE "C"
+    END as "final_rating"
+FROM FC_Barcelona_Team_Stats;
+
+SELECT COUNT(*),
+    CASE
+        WHEN initial_rating > 8 THEN "A"
+        WHEN initial_rating > 7 THEN "B"
+        ELSE "C"
+    END as "final_rating"
+FROM FC_Barcelona_Team_Stats
+GROUP BY final_rating;
